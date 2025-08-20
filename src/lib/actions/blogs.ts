@@ -58,3 +58,15 @@ export async function addBlog(_: unknown, formData: FormData) {
 
   return { success: true };
 }
+
+/**
+ * Toggle the favorite status of a blog post
+ * @param blogId The ID of the blog post
+ * @param value The new favorite status
+ * @returns A promise that resolves to an object indicating success
+ */
+export async function toggleFavorite(blogId: string, value: boolean) {
+  await dbAdmin.collection('blogs').doc(blogId).update({ favorite: value });
+  revalidatePath('/blogs');
+  return { success: true };
+}

@@ -11,13 +11,14 @@ import {
 } from '@/components/ui/dialog';
 import { addBlog } from '@/lib/actions/blogs';
 import { showToast } from '@/lib/utils';
+import SubmitButton from './SubmitButton';
 
 export default function AddBlogDialog() {
   const [title, setTitle] = useState('');
   const [url, setUrl] = useState('');
   const [open, setOpen] = useState(false);
 
-  const [state, formAction, isPending] = useActionState(addBlog, null);
+  const [state, formAction] = useActionState(addBlog, null);
 
   useEffect(() => {
     if (state?.success) {
@@ -55,13 +56,7 @@ export default function AddBlogDialog() {
             className="bg-gray-100 dark:bg-gray-800"
             type="url"
           />
-          <Button
-            type="submit"
-            disabled={isPending}
-            className="bg-blue-600 hover:bg-blue-700 text-white"
-          >
-            Add Blog
-          </Button>
+          <SubmitButton />
         </form>
       </DialogContent>
     </Dialog>

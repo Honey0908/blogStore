@@ -14,8 +14,8 @@ import {
 import { useRouter } from 'next/navigation';
 
 type DeleteBlogButtonProps = {
-  blogId: string;
-  onDelete: (id: string) => Promise<void>;
+  readonly blogId: string;
+  readonly onDelete: (id: string) => Promise<void>;
 };
 
 export default function DeleteBlogButton({
@@ -26,9 +26,9 @@ export default function DeleteBlogButton({
   const router = useRouter();
 
   const handleDelete = async () => {
+    setOpen(false);
     await onDelete(blogId);
     router.refresh();
-    setOpen(false);
   };
 
   return (
