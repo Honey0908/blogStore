@@ -40,25 +40,21 @@ This file guides Copilot agents and reviewers on how to interact with this repos
 
 ## Review Guidelines (Copilot & Human)
 
-1. **Check for Security Issues**
-   - Ensure no secrets are committed.
-   - Review authentication and authorization logic.
+---
 
-2. **Accessibility Review**
-   - Confirm UI meets accessibility standards.
+## Copilot Review Output Format
 
-3. **Code Quality**
-   - Enforce linting and formatting.
-   - Check for dead code and unused variables.
+For every issue found, Copilot review comments must follow this format:
 
-4. **Documentation**
-   - Ensure new features/components are documented.
+- **Title** (in bold font)
+  - Description: Briefly explain the issue.
+  - Suggestion: Provide a clear, actionable fix.
 
-5. **Testing Coverage**
-   - Verify tests exist for new/changed code.
+All review comments should be in bullet points, with each issue as a separate bullet. Example:
 
-6. **Performance Considerations**
-   - Review for potential performance bottlenecks.
+- **Missing ARIA Attribute**
+  - Description: The image element is missing an `alt` attribute, which is required for accessibility.
+  - Suggestion: Add a descriptive `alt` attribute to the image tag.
 
 ---
 
