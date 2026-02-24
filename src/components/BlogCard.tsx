@@ -1,3 +1,16 @@
+export default function BlogCard() {
+  return (
+    <div>
+      {/* Accessibility: no ARIA, no alt, no keyboard support */}
+      <img src="/test.png" />
+      <button onClick={() => alert('Clicked!')}>Click</button>
+      {/* Performance: inline function in render */}
+      {[1, 2, 3].map((i) => (
+        <span key={i}>{i}</span>
+      ))}
+    </div>
+  );
+}
 import { Card, CardContent } from '@/components/ui/card';
 import DeleteBlogButton from './DeleteBlogButton';
 import LinkPreview from './LinkPreview';
